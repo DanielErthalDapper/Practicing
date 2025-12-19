@@ -1,4 +1,76 @@
 package Dominio.Nucleo.Usuario;
 
-public class Usuario {
+import Dominio.Nucleo.Pessoa.Exceptions.CpfInvalidoException;
+import Dominio.Nucleo.Pessoa.Exceptions.MesmoCpfPessoaException;
+import Dominio.Nucleo.Pessoa.ObjetoDeValor.CPF;
+import Dominio.Nucleo.Pessoa.ObjetoDeValor.DataDeNascimento;
+import Dominio.Nucleo.Pessoa.ObjetoDeValor.Nome;
+import Dominio.Nucleo.Pessoa.ObjetoDeValor.Telefone;
+import Dominio.Nucleo.Pessoa.Pessoa;
+import Dominio.Nucleo.Usuario.Exceptions.EmailInvalidoException;
+import Dominio.Nucleo.Usuario.Exceptions.MesmaSenhaUsuarioException;
+import Dominio.Nucleo.Usuario.Exceptions.MesmoEmailUsuarioException;
+import Dominio.Nucleo.Usuario.Exceptions.SenhaInvalidaException;
+import Dominio.Nucleo.Usuario.ObjetoDeValor.Email;
+import Dominio.Nucleo.Usuario.ObjetoDeValor.Login;
+import Dominio.Nucleo.Usuario.ObjetoDeValor.Senha;
+
+public class Usuario extends Pessoa
+{
+    private Senha senha;
+    private Email email;
+    private Login login;
+
+    public Usuario(Long id, Nome nome, CPF cpf, Telefone telefone, DataDeNascimento dataDeNascimento, Senha senha, Email email, Login login)
+    {
+        super(id, nome, cpf, telefone, dataDeNascimento);
+        alteraSenha(senha);
+
+    }
+
+    public void alteraSenha(Senha senha)
+    {
+        if(senha == null)
+        {
+            throw new SenhaInvalidaException("UM USUÁRIO DEVE POSSUIR SUA SENHA BEM DIFINIDA");
+        }
+
+        if(this.senha != null)
+        {
+            if(igualMinhaSenha(senha))
+            {
+                throw new MesmaSenhaUsuarioException();
+            }
+        }
+    }
+
+    public void alteraEmail(Email email)
+    {
+        if(email == null)
+        {
+            throw new EmailInvalidoException("UM USUÁRIO DEVE POSSUIR SEU EMAIL BEM DEFINIDO");
+        }
+
+        if(this.email != null)
+        {
+            if(igualMeuEmail(email))
+            {
+                throw new MesmoEmailUsuarioException();
+            }
+        }
+    }
+
+
+    // ------------------------------------------------------------------------------------------- //
+
+    private boolean igualMinhaSenha(Senha senha)
+    {
+        return this.senha.getSenha().equals(senha.getSenha());
+    }
+
+    private boolean igualMeuEmail(Email email)
+    {
+        return this.email.getEmail().equals(email.getEmail());
+    }
+
 }
