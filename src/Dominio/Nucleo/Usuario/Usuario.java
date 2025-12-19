@@ -22,7 +22,8 @@ public class Usuario extends Pessoa
     {
         super(id, nome, cpf, telefone, dataDeNascimento);
         alteraSenha(senha);
-
+        alteraEmail(email);
+        alteraLogin(login);
     }
 
     public void alteraSenha(Senha senha)

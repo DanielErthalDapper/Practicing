@@ -6,7 +6,7 @@ import Dominio.Nucleo.Usuario.Usuario;
 
 public interface RepositorioUsuario
 {
-    void salver(Usuario usuario);
+    void salvar(Usuario usuario);
     void atualizar(Usuario usuario);
     void excluir(Long id);
     boolean existeCpf(CPF cpf);
