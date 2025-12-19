@@ -20,6 +20,7 @@ public class Pessoa
         alteraCpf(cpf);
         alteraNome(nome);
         alteraTelefone(telefone);
+        alteraDataNascimento(dataDeNascimento);
     }
 
     // ---------------------------------------------- ALTERADORES ------------------------------------------- //
@@ -100,6 +101,8 @@ public class Pessoa
                 throw new MesmaDataNascimentoException();
             }
         }
+
+        this.dataDeNascimento = data;
     }
 
     // ------------------------------------------------------------------------------------------------------ //

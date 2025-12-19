@@ -7,10 +7,7 @@ import Dominio.Nucleo.Pessoa.ObjetoDeValor.DataDeNascimento;
 import Dominio.Nucleo.Pessoa.ObjetoDeValor.Nome;
 import Dominio.Nucleo.Pessoa.ObjetoDeValor.Telefone;
 import Dominio.Nucleo.Pessoa.Pessoa;
-import Dominio.Nucleo.Usuario.Exceptions.EmailInvalidoException;
-import Dominio.Nucleo.Usuario.Exceptions.MesmaSenhaUsuarioException;
-import Dominio.Nucleo.Usuario.Exceptions.MesmoEmailUsuarioException;
-import Dominio.Nucleo.Usuario.Exceptions.SenhaInvalidaException;
+import Dominio.Nucleo.Usuario.Exceptions.*;
 import Dominio.Nucleo.Usuario.ObjetoDeValor.Email;
 import Dominio.Nucleo.Usuario.ObjetoDeValor.Login;
 import Dominio.Nucleo.Usuario.ObjetoDeValor.Senha;
@@ -42,6 +39,8 @@ public class Usuario extends Pessoa
                 throw new MesmaSenhaUsuarioException();
             }
         }
+
+        this.senha = senha;
     }
 
     public void alteraEmail(Email email)
@@ -58,7 +57,28 @@ public class Usuario extends Pessoa
                 throw new MesmoEmailUsuarioException();
             }
         }
+
+        this.email = email;
     }
+
+    public void alteraLogin(Login login)
+    {
+        if(login == null)
+        {
+            throw new LoginInvalidoException("UM USUÁRIO DEVE POSSUIR SEU LOGIN BEM DEFINIDO");
+        }
+
+        if(this.login != null)
+        {
+            if(igualMeuLogin(login))
+            {
+                throw new MesmoLoginUsuarioException();
+            }
+        }
+
+        this.login = login;
+    }
+
 
 
     // ------------------------------------------------------------------------------------------- //
@@ -73,4 +93,8 @@ public class Usuario extends Pessoa
         return this.email.getEmail().equals(email.getEmail());
     }
 
+    private boolean igualMeuLogin(Login login)
+    {
+        return this.login.getValor().equals(login.getValor());
+    }
 }
