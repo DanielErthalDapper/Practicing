@@ -1,4 +1,4 @@
-package Dominio.Nucleo.Usuario.Enumeração;
+package Dominio.Nucleo.Usuario.Enumeracao;
 
 public enum TipoLogin
 {

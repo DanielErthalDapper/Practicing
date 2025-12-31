@@ -1,6 +1,6 @@
 package Dominio.Nucleo.Usuario.ObjetoDeValor;
 
-import Dominio.Nucleo.Usuario.Enumeração.TipoLogin;
+import Dominio.Nucleo.Usuario.Enumeracao.TipoLogin;
 import Dominio.Nucleo.Usuario.Exceptions.LoginInvalidoException;
 
 public class Login

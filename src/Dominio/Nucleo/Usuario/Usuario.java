@@ -1,12 +1,11 @@
 package Dominio.Nucleo.Usuario;
 
-import Dominio.Nucleo.Pessoa.Exceptions.CpfInvalidoException;
-import Dominio.Nucleo.Pessoa.Exceptions.MesmoCpfPessoaException;
 import Dominio.Nucleo.Pessoa.ObjetoDeValor.CPF;
 import Dominio.Nucleo.Pessoa.ObjetoDeValor.DataDeNascimento;
 import Dominio.Nucleo.Pessoa.ObjetoDeValor.Nome;
 import Dominio.Nucleo.Pessoa.ObjetoDeValor.Telefone;
 import Dominio.Nucleo.Pessoa.Pessoa;
+import Dominio.Nucleo.Usuario.Enumeracao.NivelAcesso;
 import Dominio.Nucleo.Usuario.Exceptions.*;
 import Dominio.Nucleo.Usuario.ObjetoDeValor.Email;
 import Dominio.Nucleo.Usuario.ObjetoDeValor.Login;
@@ -17,13 +16,15 @@ public class Usuario extends Pessoa
     private Senha senha;
     private Email email;
     private Login login;
+    private NivelAcesso nivelAcesso;
 
-    public Usuario(Long id, Nome nome, CPF cpf, Telefone telefone, DataDeNascimento dataDeNascimento, Senha senha, Email email, Login login)
+    public Usuario(Long id, Nome nome, CPF cpf, Telefone telefone, DataDeNascimento dataDeNascimento, Senha senha, Email email, Login login, NivelAcesso nivelAcesso)
     {
         super(id, nome, cpf, telefone, dataDeNascimento);
         alteraSenha(senha);
         alteraEmail(email);
         alteraLogin(login);
+        alteraNivelAcesso(nivelAcesso);
     }
 
     public void alteraSenha(Senha senha)
@@ -80,6 +81,14 @@ public class Usuario extends Pessoa
         this.login = login;
     }
 
+    public void alteraNivelAcesso(NivelAcesso nivelAcesso)
+    {
+        if(nivelAcesso == null)
+        {
+            throw new NivelAcessoInvalido("UM USUÁRIO DEVE POSSUIR SEU NÍVEL DE ACESSO BEM DEFINIDO");
+        }
+    }
+
 
 
     // ------------------------------------------------------------------------------------------- //
@@ -97,5 +106,10 @@ public class Usuario extends Pessoa
     private boolean igualMeuLogin(Login login)
     {
         return this.login.getValor().equals(login.getValor());
+    }
+
+    public NivelAcesso getNivelAcesso()
+    {
+        return nivelAcesso;
     }
 }

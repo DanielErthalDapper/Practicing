@@ -1,9 +1,9 @@
-package Dominio.Nucleo.Usuario.Enumeração;
+package Dominio.Nucleo.Usuario.Enumeracao;
 
 public enum NivelAcesso
 {
     // ID 1
-    ADMINISTRADOR(1),
+    DIRETOR(1),
     // ID 2
     COORDENADOR(2),
     // ID 3

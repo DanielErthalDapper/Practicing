@@ -1,5 +1,9 @@
 package Util;
 
+import Dominio.Funcionario.Nucleo.Exceptions.FuncionarioException;
+import Dominio.Funcionario.Nucleo.Funcionario;
+import Dominio.Nucleo.Usuario.Enumeracao.NivelAcesso;
+
 public class FerramentasValidator {
     public static boolean isContemMaiuscula(String palavra) {
         for(String maiuscula : Ferramentas.listaMaiusculos) {
@@ -39,5 +43,76 @@ public class FerramentasValidator {
         }
 
         return false;
+    }
+
+    public static void validarSeEhDiretor(Funcionario funcionario)
+    {
+        if(funcionario.getNivelAcesso() != NivelAcesso.DIRETOR)
+        {
+            throw new FuncionarioException("PERMIÇÃO NEGADA! FUNÇÃO EXCLUSIVA DE DIRETORES");
+        }
+    }
+    public static void validarSeNaoEhDiretor(Funcionario funcionario)
+    {
+        if(funcionario.getNivelAcesso() == NivelAcesso.DIRETOR)
+        {
+            throw new FuncionarioException("PERMIÇÃO NEGADA! ESSE FUNÇÃO NÃO ESTÁ DISPONÍVEL PARA DIRETORES");
+        }
+    }
+    public static void validarSeEhCoordenador(Funcionario funcionario)
+    {
+        if(funcionario.getNivelAcesso() != NivelAcesso.COORDENADOR)
+        {
+            throw new FuncionarioException("PERMIÇÃO NEGADA! FUNÇÃO EXCLUSIVA DE COORDENADORES");
+        }
+    }
+    public static void validarSeEhProfessor(Funcionario funcionario)
+    {
+        if(funcionario.getNivelAcesso() != NivelAcesso.PROFESSOR)
+        {
+            throw new FuncionarioException("PERMIÇÃO NEGADA! FUNÇÃO EXCLUSIVA DE PROFESSORES");
+        }
+    }
+    public static void validarSeEhSecretario(Funcionario funcionario)
+    {
+        if(funcionario.getNivelAcesso() != NivelAcesso.SECRETARIO)
+        {
+            throw new FuncionarioException("PERMIÇÃO NEGADA! FUNÇÃO EXCLUSIVA DE SECRETÁRIOS");
+        }
+    }
+    public static void validarSeEhVendedor(Funcionario funcionario)
+    {
+        if(funcionario.getNivelAcesso() != NivelAcesso.VENDEDOR)
+        {
+            throw new FuncionarioException("PERMIÇÃO NEGADA! FUNÇÃO EXCLUSIVA DE VENDEDORES");
+        }
+    }
+    public static void validarSeNaoEhCoordenador(Funcionario funcionario)
+    {
+        if(funcionario.getNivelAcesso() == NivelAcesso.COORDENADOR)
+        {
+            throw new FuncionarioException("PERMIÇÃO NEGADA! ESSE FUNÇÃO NÃO ESTÁ DISPONÍVEL PARA COORDENADORES");
+        }
+    }
+    public static void validarSeNaoEhProfessor(Funcionario funcionario)
+    {
+        if(funcionario.getNivelAcesso() == NivelAcesso.PROFESSOR)
+        {
+            throw new FuncionarioException("PERMIÇÃO NEGADA! ESSE FUNÇÃO NÃO ESTÁ DISPONÍVEL PARA PROFESSORES");
+        }
+    }
+    public static void validarSeNaoEhSecretario(Funcionario funcionario)
+    {
+        if(funcionario.getNivelAcesso() == NivelAcesso.SECRETARIO)
+        {
+            throw new FuncionarioException("PERMIÇÃO NEGADA! ESSE FUNÇÃO NÃO ESTÁ DISPONÍVEL PARA SECREATÁRIOS");
+        }
+    }
+    public static void validarSeNaoEhVendedor(Funcionario funcionario)
+    {
+        if(funcionario.getNivelAcesso() == NivelAcesso.VENDEDOR)
+        {
+            throw new FuncionarioException("PERMIÇÃO NEGADA! ESSE FUNÇÃO NÃO ESTÁ DISPONÍVEL PARA VENDEDORES");
+        }
     }
 }
