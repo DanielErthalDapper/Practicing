@@ -1,4 +1,6 @@
 package Dominio.Funcionario.Coordenador;
 
-public class Coordenador {
+public class Coordenador
+{
+
 }

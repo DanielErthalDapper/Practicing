@@ -3,6 +3,8 @@ package Util;
 import Dominio.Funcionario.Nucleo.Exceptions.FuncionarioException;
 import Dominio.Funcionario.Nucleo.Funcionario;
 import Dominio.Nucleo.Usuario.Enumeracao.NivelAcesso;
+import Dominio.Nucleo.Usuario.Exceptions.UsuarioException;
+import Dominio.Nucleo.Usuario.Usuario;
 
 public class FerramentasValidator {
     public static boolean isContemMaiuscula(String palavra) {
@@ -115,4 +117,12 @@ public class FerramentasValidator {
             throw new FuncionarioException("PERMIÇÃO NEGADA! ESSE FUNÇÃO NÃO ESTÁ DISPONÍVEL PARA VENDEDORES");
         }
     }
+    public static void validarSeEhAluno(Usuario aluno)
+    {
+        if(aluno.getNivelAcesso() != NivelAcesso.ALUNO)
+        {
+            throw new UsuarioException("PERMIÇÃO NEGADA! FUNÇÃO EXCLUSIVA PARA ALUNOS");
+        }
+    }
+
 }

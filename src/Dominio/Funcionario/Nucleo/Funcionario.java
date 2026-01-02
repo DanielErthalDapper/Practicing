@@ -8,6 +8,7 @@ import Dominio.Nucleo.Pessoa.ObjetoDeValor.CPF;
 import Dominio.Nucleo.Pessoa.ObjetoDeValor.DataDeNascimento;
 import Dominio.Nucleo.Pessoa.ObjetoDeValor.Nome;
 import Dominio.Nucleo.Pessoa.ObjetoDeValor.Telefone;
+import Dominio.Nucleo.Usuario.Enumeracao.NivelAcesso;
 import Dominio.Nucleo.Usuario.ObjetoDeValor.Email;
 import Dominio.Nucleo.Usuario.ObjetoDeValor.Login;
 import Dominio.Nucleo.Usuario.ObjetoDeValor.Senha;
@@ -19,9 +20,9 @@ public class Funcionario extends Usuario
     private CargaHoraria cargaHoraria;
     private TipoContrato tipoContrato;
 
-    public Funcionario(Long id, Nome nome, CPF cpf, Telefone telefone, DataDeNascimento dataDeNascimento, Senha senha, Email email, Login login, Salario salario, CargaHoraria cargaHoraria, TipoContrato tipoContrato)
+    public Funcionario(Long id, Nome nome, CPF cpf, Telefone telefone, DataDeNascimento dataDeNascimento, Senha senha, Email email, Login login, Salario salario, CargaHoraria cargaHoraria, TipoContrato tipoContrato, NivelAcesso nivelAcesso)
     {
-        super(id, nome, cpf, telefone, dataDeNascimento, senha, email, login);
+        super(id, nome, cpf, telefone, dataDeNascimento, senha, email, login, nivelAcesso);
         alteraSalario(salario);
         alteraCargaHoraria(cargaHoraria);
         alteraTipoContrato(tipoContrato);

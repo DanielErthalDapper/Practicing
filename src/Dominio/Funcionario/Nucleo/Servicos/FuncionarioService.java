@@ -46,6 +46,7 @@ public class FuncionarioService
     {
         FerramentasValidator.validarSeEhDiretor(modificador);
         FerramentasValidator.validarSeNaoEhDiretor(modificado);
+        //E se o diretor tentar contratar ou desligar um aluno?
     }
     public void validarDesligamento(Funcionario modificador, Funcionario modificado)
     {
