@@ -25,7 +25,7 @@ public class Pessoa
 
     // ---------------------------------------------- ALTERADORES ------------------------------------------- //
 
-    public void alteraIdPessoa(long id) {
+    public void alteraIdPessoa(Long id) {
         if(id < 0) {
             throw new IdPessoaException("O ID DO FUNCIONARIO INFORMADO ESTÁ INVÁLIDO");
         }
@@ -123,5 +123,26 @@ public class Pessoa
     private boolean igualMinhaData(DataDeNascimento data)
     {
         return this.dataDeNascimento.getDataDeNascimento().equals(data.getDataDeNascimento());
+    }
+
+    public Long getId()
+    {
+        return id;
+    }
+    public Nome getNome()
+    {
+        return nome;
+    }
+    public CPF getCpf()
+    {
+        return cpf;
+    }
+    public Telefone getTelefone()
+    {
+        return telefone;
+    }
+    public DataDeNascimento getDataDeNascimento()
+    {
+        return dataDeNascimento;
     }
 }

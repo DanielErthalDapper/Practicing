@@ -1,4 +1,4 @@
-package Dominio.Funcionario.Professor.Enumeracoes;
+package Dominio.Nucleo.Curso.Enumeracoes;
 
 public enum Nivel
 {

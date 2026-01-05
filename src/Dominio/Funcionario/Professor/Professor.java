@@ -24,7 +24,7 @@ public class Professor extends Funcionario
 
     public Professor(Long id, Nome nome, CPF cpf, Telefone telefone, DataDeNascimento dataDeNascimento, Senha senha, Email email, Login login, Salario salario, CargaHoraria cargaHoraria, TipoContrato tipoContrato, Especialidade especialidade)
     {
-        super(id, nome, cpf, telefone, dataDeNascimento, senha, email, login, salario, cargaHoraria, tipoContrato, NivelAcesso.DIRETOR);
+        super(id, nome, cpf, telefone, dataDeNascimento, senha, email, login, salario, cargaHoraria, tipoContrato, NivelAcesso.PROFESSOR);
         alteraEspecialidade(especialidade);
     }
 

@@ -1,7 +1,7 @@
 package Dominio.Funcionario.Professor.ObjetoDeValor;
 
-import Dominio.Funcionario.Professor.Enumeracoes.Idioma;
-import Dominio.Funcionario.Professor.Enumeracoes.Nivel;
+import Dominio.Nucleo.Curso.Enumeracoes.Idioma;
+import Dominio.Nucleo.Curso.Enumeracoes.Nivel;
 import Dominio.Funcionario.Professor.Exceptions.EspecialidadeException;
 
 public class Especialidade
